@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@DateTime.Now.ToLongTimeString()</h1>
+</div>
+
+<island url="/profile/avatar">
+    <div class="alert alert-info d-flex justify-content-center vertical-align-center">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</island>
+
+<div class="overflow-x-scroll">
+    <div class="d-flex flex-nowrap" style="width: 4000px">
+        <p class="p-2 fs-3" style="width: inherit; margin-right: 3000px">
+            → Scroll To The Right
+        </p>
+        <div class="p-2 w-100">
+            <island url="/profile/avatar" event="Intersect">
+                <div class="alert alert-info d-flex justify-content-center vertical-align-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </island>
+        </div>
+    </div>
+</div>
+
+<p class="text-center fs-3 mt-2">
+    ↓ Scroll To The Bottom
+</p>
+
+<div style="margin-top: 2000px">
+    <island url="/profile/avatar" event="Revealed">
+        <div class="alert alert-info d-flex justify-content-center vertical-align-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </island>
+</div>
+
+
